@@ -9,6 +9,12 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <artifactId>tensquare_common</artifactId>
-
+    <dependencies>
+        <!--阿帕奇工具包-->
+    <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+    </dependency>
+    </dependencies>
     
 </project>
