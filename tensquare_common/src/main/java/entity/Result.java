@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Result {
 
-    /**正确的数据就是true,别的就是false*/
+    /**有数据就是true,别的就是false*/
     private boolean flag;
 
     /**状态码*/
