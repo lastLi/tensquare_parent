@@ -8,8 +8,6 @@ import lombok.NoArgsConstructor;
  * 状态码实体类
  */
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class StatusCode {
     /**成功*/
     public static final int OK = 20000;
