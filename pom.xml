@@ -34,7 +34,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <lombok.version>1.18.4</lombok.version>
         <jjwt.version>0.6.0</jjwt.version>
         <elasticsearch.version>3.0.6.RELEASE</elasticsearch.version>
         <security.version>5.2.0.BUILD-SNAPSHOT</security.version>
@@ -53,11 +52,6 @@
                 <groupId>org.springframework.data</groupId>
                 <artifactId>spring-data-elasticsearch</artifactId>
                 <version>${elasticsearch.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
             <dependency>
