@@ -1,10 +1,15 @@
 package entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 /**
  *公共的返回Json数据类
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Result {
 
     /**正确的数据就是true,别的就是false*/
