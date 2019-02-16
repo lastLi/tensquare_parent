@@ -13,7 +13,7 @@ import java.io.Serializable;
  * 城市
  */
 @Data
-@Table(schema="tb_city")
+@Table(name="tb_city")
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
