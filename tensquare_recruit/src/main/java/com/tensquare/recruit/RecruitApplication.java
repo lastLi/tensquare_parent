@@ -1,4 +1,4 @@
-package com.tensquare.base;
+package com.tensquare.recruit;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,26 +8,22 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import util.IdWorker;
 import util.MyPageQuery;
 
+
+@CrossOrigin
 @EnableCaching
-@CrossOrigin //跨域请求
 @SpringBootApplication
-public class BaseApplication {
+public class RecruitApplication {
     public static void main(String[] args) {
-        SpringApplication.run(BaseApplication.class,args);
+        SpringApplication.run(RecruitApplication.class, args);
     }
 
-    /**
-     * 注册ID生成器
-     * @return ID生成器
-     */
     @Bean
-    public IdWorker idWorker(){
-        return new IdWorker(1,1);
+    public IdWorker idWorker() {
+        return new IdWorker(1, 1);
     }
 
-
     @Bean
-    public MyPageQuery myPageQuery(){
+    public MyPageQuery myPageQuery() {
         return new MyPageQuery();
     }
 }

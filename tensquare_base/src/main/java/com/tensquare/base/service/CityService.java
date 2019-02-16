@@ -5,6 +5,8 @@ import com.tensquare.base.dao.CityDao;
 import com.tensquare.base.pojo.City;
 import com.tensquare.base.pojo.Label;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -35,6 +37,8 @@ public class CityService {
     @Resource
     private MyPageQuery myPageQuery;
 
+
+
     /**
      * @return 所有的城市列表
      */
@@ -48,6 +52,7 @@ public class CityService {
      * @param cid 城市编号
      * @return 返回当前编号的城市
      */
+    @Cacheable(value = "city",key = "#cid")
     public City findById(String cid) {
         return cityDao.findById(cid).get();
     }
@@ -73,6 +78,7 @@ public class CityService {
      *
      * @param cid 城市编号
      */
+    @CacheEvict(value = "city",key = "#cid")
     public void deleteById(String cid) {
         cityDao.deleteById(cid);
     }
@@ -144,6 +150,7 @@ public class CityService {
      * @param cid  城市编号
      * @param city 城市实体
      */
+    @CacheEvict(value = "city",key = "#cid")
     public void updateById(String cid, City city) {
         city.setId(cid);
         cityDao.save(city);
