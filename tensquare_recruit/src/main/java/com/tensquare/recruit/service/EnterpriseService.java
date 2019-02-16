@@ -9,6 +9,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import util.IdWorker;
 import util.MyPageQuery;
 
@@ -22,6 +23,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
+@Transactional
 public class EnterpriseService {
 
     @Resource

@@ -8,6 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import util.IdWorker;
 import util.MyPageQuery;
 
@@ -24,6 +25,7 @@ import java.util.List;
  * 职位业务
  */
 @Service
+@Transactional
 public class RecruitService {
     @Resource
     private RecruitDao recruitDao;
