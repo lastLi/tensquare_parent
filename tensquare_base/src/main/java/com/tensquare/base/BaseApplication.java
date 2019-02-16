@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import util.IdWorker;
+import util.MyPageQuery;
 
 @CrossOrigin //跨域请求
 @SpringBootApplication
@@ -20,5 +21,11 @@ public class BaseApplication {
     @Bean
     public IdWorker idWorker(){
         return new IdWorker(1,1);
+    }
+
+
+    @Bean
+    public MyPageQuery myPageQuery(){
+        return new MyPageQuery();
     }
 }

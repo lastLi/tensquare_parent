@@ -12,6 +12,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import util.IdWorker;
+import util.MyPageQuery;
 
 import javax.annotation.Resource;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -30,6 +31,9 @@ public class CityService {
 
     @Resource
     private IdWorker idWorker;
+
+    @Resource
+    private MyPageQuery myPageQuery;
 
     /**
      * @return 所有的城市列表
@@ -92,11 +96,7 @@ public class CityService {
      * @return 分页数据
      */
     public Page<City> pageQuery(City city, int page, int size) {
-        if (page < 0 || page == 0) {
-            page = 1;
-        }
-        //分页开始 公式:  limit 起始页page(当前页-1)*size,每页显示的数量 size
-        Pageable pageable = PageRequest.of(page - 1, size);
+        Pageable pageable = myPageQuery.pageQuery(page, size);
         return cityDao.findAll(queryByCondition(city), pageable);
     }
 
