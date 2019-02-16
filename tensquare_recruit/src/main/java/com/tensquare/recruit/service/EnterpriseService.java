@@ -3,6 +3,7 @@ package com.tensquare.recruit.service;
 import com.tensquare.recruit.dao.EnterpriseDao;
 import com.tensquare.recruit.pojo.Enterprise;
 import com.tensquare.recruit.pojo.Recruit;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
@@ -80,6 +81,7 @@ public class EnterpriseService {
      * @param id
      * @return
      */
+    @Cacheable(value = "enterprise",key = "#id")
     public Enterprise findById(String id) {
         return enterpriseDao.findById(id).get();
     }
@@ -99,6 +101,7 @@ public class EnterpriseService {
      *
      * @param enterprise
      */
+    @Cacheable(value = "enterprise",key = "#enterprise.id")
     public void update(Enterprise enterprise) {
         enterpriseDao.save(enterprise);
     }
@@ -108,6 +111,7 @@ public class EnterpriseService {
      *
      * @param id
      */
+    @Cacheable(value = "enterprise",key = "#id")
     public void deleteById(String id) {
         enterpriseDao.deleteById(id);
     }

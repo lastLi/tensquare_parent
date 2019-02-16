@@ -3,6 +3,8 @@ package com.tensquare.recruit.service;
 import com.tensquare.recruit.dao.RecruitDao;
 import com.tensquare.recruit.pojo.Recruit;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -59,6 +61,7 @@ public class RecruitService {
      * @param recruitId 职位编号
      * @return 该编号职位
      */
+    @Cacheable(value = "recruit",key = "#recruitId")
     public Recruit findById(String recruitId) {
         return recruitDao.findById(recruitId).get();
     }
@@ -69,6 +72,7 @@ public class RecruitService {
      * @param recruitId 职位编号
      * @param recruit   新的职位
      */
+    @CacheEvict(value = "recruit",key = "#recruitId")
     public void updateById(String recruitId, Recruit recruit) {
         recruit.setId(recruitId);
         recruitDao.save(recruit);
@@ -79,6 +83,7 @@ public class RecruitService {
      *
      * @param recruitId 职位编号
      */
+    @CacheEvict(value = "recruit",key = "#recruitId")
     public void deleteById(String recruitId) {
         recruitDao.deleteById(recruitId);
     }
