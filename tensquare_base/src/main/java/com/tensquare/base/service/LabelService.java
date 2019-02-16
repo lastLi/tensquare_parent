@@ -4,6 +4,8 @@ import com.tensquare.base.dao.LabelDao;
 import com.tensquare.base.pojo.Label;
 import entity.PageResult;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -51,6 +53,7 @@ public class LabelService {
      * @param id 编号
      * @return 标签数据
      */
+    @Cacheable(value = "label",key = "#id")
     public Label findById(String id) {
         return labelDao.findById(id).get();
     }
@@ -72,6 +75,7 @@ public class LabelService {
      * @param id    编号
      * @param label 标签
      */
+    @CacheEvict(value = "label",key = "#id")
     public void updateById(String id, Label label) {
         //给这个实体加上要被修改的ID值
         label.setId(id);
@@ -83,6 +87,7 @@ public class LabelService {
      *
      * @param id 编号
      */
+    @CacheEvict(value = "label",key = "#id")
     public void deleteById(String id) {
         labelDao.deleteById(id);
     }
