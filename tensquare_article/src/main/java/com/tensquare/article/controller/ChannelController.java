@@ -17,6 +17,9 @@ import com.tensquare.article.service.ChannelService;
 import entity.PageResult;
 import entity.Result;
 import entity.StatusCode;
+
+import javax.annotation.Resource;
+
 /**
  * 控制器层
  * @author Administrator
@@ -27,7 +30,7 @@ import entity.StatusCode;
 @RequestMapping("/channel")
 public class ChannelController {
 
-	@Autowired
+	@Resource
 	private ChannelService channelService;
 	
 	
