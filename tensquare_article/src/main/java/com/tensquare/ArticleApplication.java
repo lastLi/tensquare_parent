@@ -3,11 +3,10 @@ package com.tensquare;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import util.IdWorker;
 import util.MyPageQuery;
 
-@CrossOrigin
+
 @SpringBootApplication
 public class ArticleApplication {
     public static void main(String[] args) {
