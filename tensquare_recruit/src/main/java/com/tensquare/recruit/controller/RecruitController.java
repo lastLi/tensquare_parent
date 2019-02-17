@@ -10,7 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-
+@CrossOrigin //跨域请求
 @RestController
 @RequestMapping("/recruit")
 public class RecruitController {

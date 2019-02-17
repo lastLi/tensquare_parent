@@ -9,7 +9,6 @@ import util.IdWorker;
 import util.MyPageQuery;
 
 
-@CrossOrigin
 @EnableCaching
 @SpringBootApplication
 public class RecruitApplication {

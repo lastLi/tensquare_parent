@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
-
+@CrossOrigin //跨域请求
 @RestController
 @RequestMapping("/enterprise")
 public class EnterpriseController {
