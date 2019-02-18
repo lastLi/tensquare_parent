@@ -1,12 +1,9 @@
 package com.tensquare.spit.service;
 
-import com.mongodb.client.result.UpdateResult;
 import com.tensquare.spit.dao.SpitDao;
 import com.tensquare.spit.pojo.Spit;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
