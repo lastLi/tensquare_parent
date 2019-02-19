@@ -24,6 +24,12 @@ public class Result {
     /**返回数据*/
     private Object data;
 
+    /**
+     * 不携带数据的返回
+     * @param flag 旗帜
+     * @param code 状态码
+     * @param message 消息
+     */
     public Result(boolean flag, Integer code, String message) {
         this.flag = flag;
         this.code = code;
