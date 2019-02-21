@@ -94,6 +94,7 @@ public class ManagerFilter extends ZuulFilter {
                     e.printStackTrace();
                     // 终止运行
                     currentContext.setSendZuulResponse(false);
+                    currentContext.setResponseBody("token令牌过期");
                 }
             }
 

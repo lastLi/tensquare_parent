@@ -1,8 +1,11 @@
 package com.tensquare.article.controller;
-import java.util.List;
-import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.tensquare.article.pojo.Channel;
+import com.tensquare.article.service.ChannelService;
+import entity.PageResult;
+import entity.Result;
+import entity.StatusCode;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,20 +14,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tensquare.article.pojo.Channel;
-import com.tensquare.article.service.ChannelService;
-
-import entity.PageResult;
-import entity.Result;
-import entity.StatusCode;
-
 import javax.annotation.Resource;
+import java.util.Map;
 
 /**
  * 控制器层
  * @author Administrator
  *
  */
+@RefreshScope  //支持上线,自定义配置文件的热部署
 @RestController
 @CrossOrigin
 @RequestMapping("/channel")

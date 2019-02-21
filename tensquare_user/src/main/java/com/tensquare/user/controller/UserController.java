@@ -5,6 +5,7 @@ import com.tensquare.user.service.UserService;
 import entity.PageResult;
 import entity.Result;
 import entity.StatusCode;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.data.domain.Page;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -29,6 +30,7 @@ import java.util.Objects;
  *
  * @author Administrator
  */
+@RefreshScope  //支持上线,自定义配置文件的热部署
 @RestController
 @CrossOrigin
 @RequestMapping("/user")
