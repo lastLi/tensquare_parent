@@ -4,6 +4,7 @@ import com.tensquare.base.pojo.City;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 /**
  * 城市Dao
@@ -15,7 +16,7 @@ public interface CityDao extends JpaRepository<City, String>, JpaSpecificationEx
      * @param name 城市名字
      * @return 结果
      */
-    @Query(value = "SELECT * FROM tensquare_base.tb_city WHERE name=#{name}", nativeQuery = true)
-    boolean findByName(String name);
+    @Query(value = "SELECT * FROM tensquare_base.tb_city WHERE name= :name", nativeQuery = true)
+    boolean findByName(@Param("name") String name);
 
 }

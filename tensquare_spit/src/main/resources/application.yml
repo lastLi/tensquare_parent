@@ -1,0 +1,22 @@
+server:
+  port: 9006 #Tomcat 端口号
+  tomcat:
+    uri-encoding: UTF-8 #设置服务器字符集
+spring:
+  application:
+    name: tensquare-spit #模块名字
+  data:
+    mongodb:
+      host: 192.168.28.130
+      port: 27017
+      database: spitdb
+  redis:
+    host: 192.168.28.130
+    port: 6379
+
+    #  uri: mongodb://192.168.28.130:27017/spitdb  这种写法也行
+  http: #HTTP请求
+    encoding:
+      charset: UTF-8 #所有字符集UTF-8
+      force: true
+      enabled: true

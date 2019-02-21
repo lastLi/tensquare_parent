@@ -20,3 +20,15 @@ spring:
       charset: UTF-8 #所有字符集UTF-8
       force: true
       enabled: true
+jwt:
+  config:
+    key: itcast
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:6868/eureka/
+  instance:
+    prefer-ip-address: true  #支持模块跨域访问
+feign:
+  hystrix:
+    enabled: true
