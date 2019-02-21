@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 /**
  * 数据访问接口
@@ -21,8 +22,8 @@ public interface ArticleDao extends JpaRepository<Article, String>, JpaSpecifica
      * @param id 审核对象的编号
      */
     @Modifying
-    @Query(value = "UPDATE tensquare_article.tb_article SET state=1 WHERE id=#{id}", nativeQuery = true)
-    void updateState(String id);
+    @Query(value = "UPDATE tensquare_article.tb_article SET state=1 WHERE id= :id", nativeQuery = true)
+    void updateState(@Param("id") String id);
 
     /**
      * <p>文章点赞</p>
@@ -32,7 +33,9 @@ public interface ArticleDao extends JpaRepository<Article, String>, JpaSpecifica
      * @param id 该文章的编号
      */
     @Modifying
-    @Query(value = "UPDATE tensquare_article.tb_article SET thumbup=IFNULL(thumbup,0)+1 WHERE id=#{id}",
+    @Query(value = "UPDATE tensquare_article.tb_article SET thumbup=IFNULL(thumbup,0)+1 WHERE id= :id",
             nativeQuery = true)
-    void addThumbup(String id);
+    void addThumbup(@Param("id") String id);
+
+
 }

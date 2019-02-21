@@ -23,3 +23,9 @@ spring:
   redis:
     host: 192.168.28.130
     port: 6379
+eureka:
+ client:
+   service-url:
+    defaultZone: http://127.0.0.1:6868/eureka/
+ instance:
+   prefer-ip-address: true  #支持模块跨域访问
