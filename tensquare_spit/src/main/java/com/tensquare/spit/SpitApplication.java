@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 import util.IdWorker;
 import util.MyPageQuery;
 
-@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)  //链接MongoDB 必须排除DataSourceAutoConfiguration.class
+@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)//链接MongoDB 必须排除DataSourceAutoConfiguration.class
 public class SpitApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpitApplication.class,args);

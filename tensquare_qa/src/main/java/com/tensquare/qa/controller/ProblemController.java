@@ -1,5 +1,6 @@
 package com.tensquare.qa.controller;
 
+import com.tensquare.qa.client.BaseClient;
 import com.tensquare.qa.pojo.Problem;
 import com.tensquare.qa.service.ProblemService;
 import entity.PageResult;
@@ -29,6 +30,14 @@ public class ProblemController {
     @Resource
     private HttpServletRequest request;
 
+    @Resource
+    private BaseClient baseClient;
+
+    @GetMapping("/label/{labelId}")
+    public Result findByLabelId(@PathVariable("labelId") String labelId){
+
+        return baseClient.findByLabelId(labelId);
+    }
     /**
      * 最新问答列表
      *
@@ -128,9 +137,9 @@ public class ProblemController {
     }
 
     /**
-     * 增加
+     * 增加 问题
      *
-     * @param problem
+     * @param problem  问题
      */
     @PostMapping
     public Result add(@RequestBody Problem problem) {

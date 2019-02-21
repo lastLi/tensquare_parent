@@ -1,0 +1,7 @@
+server:
+  port: 9009
+spring:
+  rabbitmq:
+    host: 192.168.28.130
+  application:
+    name: tensquare-sms #指定服务名

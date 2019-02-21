@@ -6,6 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 /**
  * 数据访问接口
@@ -19,18 +20,18 @@ public interface ProblemDao extends JpaRepository<Problem, String>, JpaSpecifica
      * @param pageable 分页
      * @return 最新回复
      */
-    @Query(value = "SELECT * FROM tensquare_qa.tb_problem INNER JOIN tensquare_qa.tb_pl ON tensquare_qa.tb_problem.id = tensquare_qa.tb_pl.problemid AND tensquare_qa.tb_pl.labelid = #{labelId} ORDER BY replytime DESC ",
+    @Query(value = "SELECT * FROM tensquare_qa.tb_problem INNER JOIN tensquare_qa.tb_pl ON tensquare_qa.tb_problem.id = tensquare_qa.tb_pl.problemid AND tensquare_qa.tb_pl.labelid = :labelId ORDER BY replytime DESC ",
             nativeQuery = true)
-    Page<Problem> newList(String labelId, Pageable pageable);
+    Page<Problem> newList(@Param("labelId") String labelId, Pageable pageable);
 
     /**
      * @param labelId  编号
      * @param pageable 分页
      * @return 热门回复
      */
-    @Query(value = "SELECT * FROM tensquare_qa.tb_problem INNER JOIN tensquare_qa.tb_pl ON tensquare_qa.tb_problem.id = tensquare_qa.tb_pl.problemid AND tensquare_qa.tb_pl.labelid = #{labelId} ORDER BY reply DESC ",
+    @Query(value = "SELECT * FROM tensquare_qa.tb_problem INNER JOIN tensquare_qa.tb_pl ON tensquare_qa.tb_problem.id = tensquare_qa.tb_pl.problemid AND tensquare_qa.tb_pl.labelid = :labelId ORDER BY reply DESC ",
             nativeQuery = true)
-    Page<Problem> hotList(String labelId, Pageable pageable);
+    Page<Problem> hotList(@Param("labelId") String labelId, Pageable pageable);
 
     /**
      * @param labelId  编号
