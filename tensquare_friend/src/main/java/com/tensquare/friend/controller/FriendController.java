@@ -5,6 +5,8 @@ import com.tensquare.friend.service.FriendService;
 import entity.Result;
 import entity.StatusCode;
 import io.jsonwebtoken.Claims;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+@CrossOrigin
+@RefreshScope  //支持上线,自定义配置文件的热部署
 @RestController
 @RequestMapping("/friend")
 public class FriendController {

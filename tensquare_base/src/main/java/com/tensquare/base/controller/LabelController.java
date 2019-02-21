@@ -5,6 +5,7 @@ import com.tensquare.base.service.LabelService;
 import entity.PageResult;
 import entity.Result;
 import entity.StatusCode;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,6 +26,7 @@ import java.util.List;
  * Label控制类
  * 标签
  */
+@RefreshScope  //支持上线,自定义配置文件的热部署
 @CrossOrigin
 @RestController
 @RequestMapping("/label")

@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      name: recruit  #前缀    base-dev
+      profile: dev #后缀
+      label: master #Git 分支
+      uri: http://127.0.0.1:12000  #配置模块的ip和端口号

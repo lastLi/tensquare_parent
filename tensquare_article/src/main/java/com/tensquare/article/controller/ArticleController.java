@@ -5,6 +5,7 @@ import com.tensquare.article.service.ArticleService;
 import entity.PageResult;
 import entity.Result;
 import entity.StatusCode;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -24,6 +25,7 @@ import java.util.Map;
  *
  * @author Administrator
  */
+@RefreshScope  //支持上线,自定义配置文件的热部署
 @RestController
 @CrossOrigin
 @RequestMapping("/article")

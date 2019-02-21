@@ -5,6 +5,7 @@ import com.tensquare.user.service.AdminService;
 import entity.PageResult;
 import entity.Result;
 import entity.StatusCode;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -26,6 +27,7 @@ import java.util.Map;
  *
  * @author Administrator
  */
+@RefreshScope  //支持上线,自定义配置文件的热部署
 @RestController
 @CrossOrigin
 @RequestMapping("/admin")
@@ -52,7 +54,7 @@ public class AdminController {
         //保存角色
         map.put("token", token);
         map.put("role", "admin");
-        return new Result(true, StatusCode.OK, "登录成功",map);
+        return new Result(true, StatusCode.OK, "登录成功", map);
     }
 
 
